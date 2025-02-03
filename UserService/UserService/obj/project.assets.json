@@ -453,9 +453,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService\\UserService.csproj",
-      "projectName": "UserService",
-      "projectPath": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService\\UserService.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService\\UserService.Api.csproj",
+      "projectName": "UserService.Api",
+      "projectPath": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService\\UserService.Api.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService\\obj\\",
       "projectStyle": "PackageReference",
