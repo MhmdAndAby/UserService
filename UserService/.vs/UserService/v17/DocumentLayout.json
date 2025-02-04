@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{55B2421D-5275-4685-8B4F-2A1CA5410ECF}|UserService.Repository\\UserService.Repository.csproj|c:\\users\\admin\\downloads\\userservice\\userservice\\userservice.repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55B2421D-5275-4685-8B4F-2A1CA5410ECF}|UserService.Repository\\UserService.Repository.csproj|solutionrelative:userservice.repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{55B2421D-5275-4685-8B4F-2A1CA5410ECF}|UserService.Repository\\UserService.Repository.csproj|c:\\users\\admin\\downloads\\userservice\\userservice\\userservice.repository\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55B2421D-5275-4685-8B4F-2A1CA5410ECF}|UserService.Repository\\UserService.Repository.csproj|solutionrelative:userservice.repository\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{ABA99D31-36CA-40EC-802F-A6A8A41548A2}|UserService.Application\\UserService.Application.csproj|c:\\users\\admin\\downloads\\userservice\\userservice\\userservice.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABA99D31-36CA-40EC-802F-A6A8A41548A2}|UserService.Application\\UserService.Application.csproj|solutionrelative:userservice.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55B2421D-5275-4685-8B4F-2A1CA5410ECF}|UserService.Repository\\UserService.Repository.csproj|c:\\users\\admin\\downloads\\userservice\\userservice\\userservice.repository\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55B2421D-5275-4685-8B4F-2A1CA5410ECF}|UserService.Repository\\UserService.Repository.csproj|solutionrelative:userservice.repository\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Repository\\Interfaces\\IUserRepository.cs",
               "RelativeDocumentMoniker": "UserService.Repository\\Interfaces\\IUserRepository.cs",
@@ -55,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "UserService\\Controllers\\UsersController.cs",
@@ -63,12 +63,11 @@
               "RelativeToolTip": "UserService\\Controllers\\UsersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T19:53:42.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T19:53:42.893Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Address.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Domain\\Address.cs",
               "RelativeDocumentMoniker": "UserService.Domain\\Address.cs",
@@ -80,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Domain\\User.cs",
               "RelativeDocumentMoniker": "UserService.Domain\\User.cs",
@@ -92,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Shared\\Class1.cs",
               "RelativeDocumentMoniker": "UserService.Shared\\Class1.cs",
@@ -104,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Application\\Class1.cs",
               "RelativeDocumentMoniker": "UserService.Application\\Class1.cs",
@@ -116,15 +115,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Repository\\Class1.cs",
-              "RelativeDocumentMoniker": "UserService.Repository\\Class1.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Repository\\Class1.cs",
-              "RelativeToolTip": "UserService.Repository\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "UserService.Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\UserService\\UserService\\UserService.Repository\\UserRepository.cs",
+              "RelativeToolTip": "UserService.Repository\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T19:27:01.817Z"
+              "WhenOpened": "2025-02-03T19:27:01.817Z",
+              "EditorCaption": ""
             }
           ]
         }
