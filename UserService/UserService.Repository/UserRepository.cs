@@ -3,7 +3,7 @@ using UserService.Repository.Interfaces;
 
 namespace UserService.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository :IUserRepository
     {
         public Task CreateAsync(User user)
         {

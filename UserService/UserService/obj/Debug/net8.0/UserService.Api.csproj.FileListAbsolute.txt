@@ -35,3 +35,9 @@ C:\Users\Admin\Downloads\UserService\UserService\UserService\obj\Debug\net8.0\re
 C:\Users\Admin\Downloads\UserService\UserService\UserService\obj\Debug\net8.0\UserService.Api.pdb
 C:\Users\Admin\Downloads\UserService\UserService\UserService\obj\Debug\net8.0\UserService.Api.genruntimeconfig.cache
 C:\Users\Admin\Downloads\UserService\UserService\UserService\obj\Debug\net8.0\ref\UserService.Api.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService\bin\Debug\net8.0\UserService.Application.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService\bin\Debug\net8.0\UserService.Domain.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService\bin\Debug\net8.0\UserService.Repository.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService\bin\Debug\net8.0\UserService.Application.pdb
+C:\Users\Admin\Downloads\UserService\UserService\UserService\bin\Debug\net8.0\UserService.Domain.pdb
+C:\Users\Admin\Downloads\UserService\UserService\UserService\bin\Debug\net8.0\UserService.Repository.pdb

@@ -1,0 +1,82 @@
+﻿using UserService.Application.DTOs;
+using UserService.Application.Interfaces;
+using UserService.Domain;
+using UserService.Repository.Interfaces;
+
+namespace UserService.Application
+{
+    public class UserService(IUserRepository userRepository) : IUserService
+    {
+        private readonly IUserRepository _userRepository=userRepository;
+        public async Task CreateAsync(UserDto userDto)
+        {
+            var user = new User()
+            { 
+                FirstName=userDto.FirstName,
+                LastName=userDto.LastName,
+                Address=userDto.Address,
+                PhoneNumber=userDto.PhoneNumber,
+                Email=userDto.Email,
+
+
+            };
+
+            await _userRepository.CreateAsync(user);
+        }
+
+        public async Task DeleteAsync(Guid userId)
+        {
+            await _userRepository.DeleteAsync(userId);
+        }
+
+        public async Task<IEnumerable<UserDto>> GetAllAsync()
+        {
+           var users = await _userRepository.GetAllAsync();
+           var usersDto=new List<UserDto>();
+            foreach (var user in users)
+            {
+                usersDto.Add(new UserDto()
+                { 
+
+                    Address=user.Address,
+                    PhoneNumber=user.PhoneNumber,
+                    Email=user.Email,
+                    FirstName= user.FirstName,
+                    LastName= user.LastName,
+                });
+            }
+            return usersDto;
+        }
+        public async Task<UserDto?> GetUserByIdAsync(Guid userId)
+        {
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user != null)
+            {
+                var userDto=new UserDto()
+                {
+                    Address = user.Address,
+                    PhoneNumber = user.PhoneNumber,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+
+                };
+                return userDto;
+            }
+            return null;
+        }
+        public async Task UpdateAsync(Guid id,UserDto userDto)
+        {
+            var user = new User()
+            {
+                UserId = id,
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                Email = userDto.Email,
+                Address = userDto.Address,
+                PhoneNumber = userDto.PhoneNumber,
+            };
+            await _userRepository.UpdateAsync(user);
+        }
+    }
+}
