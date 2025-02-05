@@ -6,39 +6,38 @@ namespace UserService.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController(IUserService userService) : ControllerBase
+    public class UserController(IEndUserService userService) : ControllerBase
     {
-        private readonly IUserService _userService=userService;
+        private readonly IEndUserService _userService = userService;
        
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            return Ok(await _userService.GetAllAsync());
+            var users = await _userService.GetAllAsync();
+            return Ok(users);
         }
-        [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] UserDto userDto)
-        {
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] UserDto userDto)
+        {
             await _userService.CreateAsync(userDto);
             return NoContent();
-
         }
-        [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetById([FromRoute] Guid id)
-        {
 
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> Get([FromRoute] Guid id)
+        {
             var userDto = await _userService.GetUserByIdAsync(id);
             if (userDto == null)
             {
                 return NotFound();
             }
             return Ok(userDto);
-
         }
-        [HttpPut("{id:guid}")]
-        public async Task<IActionResult> UpdateById([FromRoute] Guid id,UserDto userDto)
-        {
 
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Put([FromRoute] Guid id,UserDto userDto)
+        {
             var user = await _userService.GetUserByIdAsync(id);
             if (user == null)
             {
@@ -47,13 +46,11 @@ namespace UserService.Api.Controllers
             await _userService.UpdateAsync(id, userDto);
 
             return NoContent();
-
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> DeleteById([FromRoute] Guid id)
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
-
             var user = await _userService.GetUserByIdAsync(id);
             if(user == null)
             {
@@ -62,9 +59,6 @@ namespace UserService.Api.Controllers
 
             await _userService.DeleteAsync(id);
             return NoContent();
-
-
-
         }
 
         

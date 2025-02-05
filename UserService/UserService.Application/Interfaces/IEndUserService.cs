@@ -2,7 +2,7 @@
 
 namespace UserService.Application.Interfaces
 {
-    public interface IUserService
+    public interface IEndUserService
     {
         Task CreateAsync(UserDto userDto);
         Task<UserDto?> GetUserByIdAsync(Guid userId);

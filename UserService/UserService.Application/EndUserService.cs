@@ -5,18 +5,18 @@ using UserService.Repository.Interfaces;
 
 namespace UserService.Application
 {
-    public class UserService(IUserRepository userRepository) : IUserService
+    public class EndUserService(IUserRepository userRepository) : IEndUserService
     {
         private readonly IUserRepository _userRepository=userRepository;
         public async Task CreateAsync(UserDto userDto)
         {
             var user = new User()
             { 
-                FirstName=userDto.FirstName,
-                LastName=userDto.LastName,
-                Address=userDto.Address,
-                PhoneNumber=userDto.PhoneNumber,
-                Email=userDto.Email,
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                Address = userDto.Address,
+                PhoneNumber = userDto.PhoneNumber,
+                Email = userDto.Email,
 
 
             };
@@ -38,15 +38,16 @@ namespace UserService.Application
                 usersDto.Add(new UserDto()
                 { 
 
-                    Address=user.Address,
-                    PhoneNumber=user.PhoneNumber,
-                    Email=user.Email,
-                    FirstName= user.FirstName,
-                    LastName= user.LastName,
+                    Address = user.Address,
+                    PhoneNumber = user.PhoneNumber,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
                 });
             }
             return usersDto;
         }
+
         public async Task<UserDto?> GetUserByIdAsync(Guid userId)
         {
             var user = await _userRepository.GetUserByIdAsync(userId);

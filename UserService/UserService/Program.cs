@@ -1,14 +1,12 @@
-using UserService.Application.Interfaces;
-using UserService.Repository;
-using UserService.Repository.Interfaces;
+using UserService.Api;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IUserRepository,UserRepository>();
-builder.Services.AddScoped<IUserService, UserService.Application.UserService>();
+builder.Services.AddControllerUtilities();
+builder.Services.AddRepositories();
+builder.Services.AddServices();
+
 var app = builder.Build();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
