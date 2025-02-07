@@ -5,6 +5,11 @@ namespace UserService.Repository
 {
     public class UserRepository :IUserRepository
     {
+        public Task<bool> CheckIfUserExists(string email)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task CreateAsync(User user)
         {
             throw new NotImplementedException();

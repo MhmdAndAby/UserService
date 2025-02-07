@@ -1,26 +1,30 @@
-﻿using UserService.Application.DTOs;
+﻿using AutoMapper;
+using UserService.Application.DTOs;
 using UserService.Application.Interfaces;
 using UserService.Domain;
 using UserService.Repository.Interfaces;
 
 namespace UserService.Application
 {
-    public class EndUserService(IUserRepository userRepository) : IEndUserService
+    public class EndUserService(IUserRepository userRepository,IMapper mapper) : IEndUserService
     {
         private readonly IUserRepository _userRepository=userRepository;
+        private readonly IMapper _mapper=mapper;
+
+        private async Task<bool> CheckIfUserExists(string email)
+        {
+           return await _userRepository.CheckIfUserExists(email);
+        }
+
         public async Task CreateAsync(UserDto userDto)
         {
-            var user = new User()
-            { 
-                FirstName = userDto.FirstName,
-                LastName = userDto.LastName,
-                Address = userDto.Address,
-                PhoneNumber = userDto.PhoneNumber,
-                Email = userDto.Email,
-
-
-            };
-
+            var userExists=await CheckIfUserExists(userDto.Email);
+            if(userExists)
+            {
+                throw new Exception();
+            }
+           
+            var user=_mapper.Map<User>(userDto);
             await _userRepository.CreateAsync(user);
         }
 

@@ -2,6 +2,9 @@
 using UserService.Repository;
 using UserService.Application.Interfaces;
 using UserService.Application;
+using UserService.Application.Mappings;
+
+
 
 namespace UserService.Api
 {
@@ -15,6 +18,7 @@ namespace UserService.Api
         public static void AddServices(this IServiceCollection services)
         {
             services.AddScoped<IEndUserService,EndUserService>();
+            services.AddAutoMapper(typeof( UserDtoToUser));
         }
 
         public static void AddControllerUtilities(this IServiceCollection services)
@@ -22,6 +26,21 @@ namespace UserService.Api
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+        }
+        public static void ConfigureApplication(this WebApplication app)
+        {
+
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseAuthorization();
+            app.MapControllers();
+            app.Run();
+
         }
     }
 }

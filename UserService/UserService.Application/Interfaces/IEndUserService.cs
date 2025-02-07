@@ -9,5 +9,6 @@ namespace UserService.Application.Interfaces
         Task<IEnumerable<UserDto>> GetAllAsync();
         Task UpdateAsync(Guid id,UserDto userDto);
         Task DeleteAsync(Guid userId);
+        
     }
 }
