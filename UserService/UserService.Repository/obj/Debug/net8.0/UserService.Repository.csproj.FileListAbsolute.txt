@@ -1,0 +1,16 @@
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\bin\Debug\net8.0\UserService.Repository.deps.json
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\bin\Debug\net8.0\UserService.Repository.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\bin\Debug\net8.0\UserService.Repository.pdb
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\bin\Debug\net8.0\UserService.Domain.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\bin\Debug\net8.0\UserService.Domain.pdb
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.AssemblyInfoInputs.cache
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.AssemblyInfo.cs
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.sourcelink.json
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserServ.2EE6921D.Up2Date
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\refint\UserService.Repository.dll
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\UserService.Repository.pdb
+C:\Users\Admin\Downloads\UserService\UserService\UserService.Repository\obj\Debug\net8.0\ref\UserService.Repository.dll

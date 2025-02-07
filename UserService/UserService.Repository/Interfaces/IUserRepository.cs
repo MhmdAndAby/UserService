@@ -9,5 +9,6 @@ namespace UserService.Repository.Interfaces
         Task<IEnumerable<User>> GetAllAsync();
         Task UpdateAsync(User user);
         Task DeleteAsync(Guid userId);
+        Task<bool> CheckIfUserExists(string email);
     }
 }
