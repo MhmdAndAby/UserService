@@ -12,8 +12,10 @@ namespace UserService.Api.Validators
 
             ApplyNameRules(() => RuleFor(x => x.LastName));
 
-            RuleFor(x => x.Email).NotEmpty().WithMessage("Email cannot be empty.")
-                .EmailAddress().WithMessage("Invalid email format.");
+            RuleFor(x => x.Email)
+               .NotEmpty().WithMessage("Email cannot be empty.")
+               .Matches(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+               .WithMessage("Invalid email format.");
 
             RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("Phone number cannot be empty.")
                 .Length(11).WithMessage("The length of phone number should be 11 characters.");

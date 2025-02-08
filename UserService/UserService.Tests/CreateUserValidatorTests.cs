@@ -1,178 +1,78 @@
 using Shouldly;
 using UserService.Api.Validators;
 using UserService.Api.ViewModels;
-using AutoFixture;
 
 namespace UserService.Tests
 {
     public class CreateUserValidatorTests
     {
         private readonly CreateUserValidator _validator = new();
-        private readonly Fixture _fixture = new();
 
-        public static IEnumerable<object[]> UserData()
+        [Theory]
+        [InlineData("Y",false)]//1 character
+        [InlineData("YY",false)]//2 characters
+        [InlineData("YYYY",true)]// 4 characters
+        [InlineData("yxmbwlzpnfvjcdkrsohgueatqixdsbhjymekqupoltwfgodvc",true)]// 49 characters
+        [InlineData("YXJTVBhDKLNzqRmCpwMGZsfyQAtWCEodkVgPXlFHuIObDmaYJR",true)]// 50 characters
+        [InlineData("vwxzjbnlcfqgodmtkpyhuesarivdxsbhjyekqumplcwtfogvdkir", false)]//51 characters
+        [InlineData("YY YY",false)]// Contain spaces
+        [InlineData("YY$YY",false)]// Contain special character
+        public void Should_ReturnCorrectValidation_When_GivenName(string name,bool expected)
         {
-            var fixture = new Fixture();
-            var user = fixture.Build<CreateUserViewModel>()
-                              .With(x => x.Email, "test@gmail.com")
-                              .With(x => x.FirstName, "testOne")
-                              .With(x => x.LastName, "testTwo")
-                              .With(x => x.PhoneNumber, "00000000000")
-                              .Create();
-
-            yield return new object[] { user };
+            //Act
+            var userModelTest = CreateUserViewModelData();
+            userModelTest.FirstName = name;
+            userModelTest.LastName = name;
+            
+            var result=_validator.Validate(userModelTest);
+            result.IsValid.ShouldBe(expected);
         }
 
         [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_FirstName_Is_Empty(CreateUserViewModel userView)
+        [InlineData("5",false)]//1 number
+        [InlineData("555",false)]// 3 numbers
+        [InlineData("55555",false)]//5 numbers
+        [InlineData("123456789",false)]//9 numbers
+        [InlineData("01234567890",true)]//11 numbers
+        [InlineData("1234567890123456789",false)]//19 numbers
+        public void Should_ReturnCorrectValidation_WhenGivePhoneNumber(string phoneNumber,bool expected)
         {
+            var userModelTest= CreateUserViewModelData();
+            userModelTest.PhoneNumber = phoneNumber;
 
-            userView.FirstName = "";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-        
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        
-        public void Should_Return_False_When_FirstName_Less_than_Three_Character(CreateUserViewModel userView)
-        {
-            userView.FirstName = "ts";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
+            var result=_validator.Validate(userModelTest);  
+            result.IsValid.ShouldBe(expected);
         }
 
         [Theory]
-        [MemberData(nameof(UserData))]  
-        public void Should_Return_False_When_FirstName_Greater_Than_Fifty(CreateUserViewModel userView)
+        [InlineData("example@gmail.com", true)]  // Valid email
+        [InlineData("test.email@example.com", true)]  // Valid email with dot
+        [InlineData("test_email@example.com", true)]  // Valid email with underscore
+        [InlineData("email@domain.co", true)]  // Valid email with a different domain extension
+        [InlineData("user123@sub.domain.com", true)]  // Valid email with subdomain
+        [InlineData("invalid-email.com", false)]  // Missing "@"
+        [InlineData("invalid@domain", false)]  // Missing domain extension
+        [InlineData("@missingusername.com", false)]  // Missing username before "@"
+        [InlineData("user@.com", false)]  // Invalid domain (starting with a dot)
+        public void Should_ReturnCorrectValidation_When_GivenEmail(string email,bool expected)
         {
-            userView.FirstName = "";
-            for(int i=0;i<54;i++)
+            var userModelTest = CreateUserViewModelData();
+            userModelTest.Email = email;
+
+            var result = _validator.Validate(userModelTest);
+            result.IsValid.ShouldBe(expected);
+        }
+        private static CreateUserViewModel CreateUserViewModelData()
+        {
+            return new CreateUserViewModel
             {
-                userView.FirstName += "t";
-            }
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse(); 
+                FirstName = "testFirstName",
+                LastName = "testLastName",
+                Email = "example@gmail.com",
+                PhoneNumber = "00000000000"
+            };
+
         }
 
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_True_When_FirstName_Is_Between_Three_And_fifty_Charachters(CreateUserViewModel userView)
-        {
-            userView.FirstName = "test";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeTrue();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_FirstName_Contains_Special_Characters_Or_Space(CreateUserViewModel userView)
-        {
-            userView.FirstName = " dkd dl";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_LastName_Is_Empty(CreateUserViewModel userView)
-        {
-
-            userView.LastName = "";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_LastName_Less_than_Three_Character(CreateUserViewModel userView)
-        {
-            userView.LastName = "ts";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_LastName_Greater_Than_Fifty(CreateUserViewModel userView)
-        {
-            userView.LastName = "";
-            for (int i = 0; i < 54; i++)
-            {
-                userView.FirstName += "t";
-            }
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_True_When_LastName_Is_Between_Three_And_fifty_Charachters(CreateUserViewModel userView)
-        {
-            userView.LastName = "tesfft";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeTrue();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_LastName_Contains_Special_Characters_Or_Space(CreateUserViewModel userView)
-        {
-            userView.LastName = " dkd dl";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_Email_Is_With_Invalid_Format(CreateUserViewModel userView)
-        {
-            userView.Email = "test";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_True_When_Email_Is_With_Valid_Format(CreateUserViewModel viewModel)
-        {
-            viewModel.Email = "test@gmail.com";
-            var result = _validator.Validate(viewModel);
-            result.IsValid.ShouldBeTrue();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_PhoneNumber_Is_Less_Than_Eleven_Characters(CreateUserViewModel userView)
-        {
-            userView.PhoneNumber = "123";
-             var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_False_When_PhoneNumber_Is_Greater_Than_Eleven_Characters(CreateUserViewModel userView)
-        {
-            userView.PhoneNumber = "";
-            for(int i=0;i<15;i++)
-            {
-                userView.PhoneNumber += "1";
-            }
-
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeFalse();
-        }
-
-        [Theory]
-        [MemberData(nameof(UserData))]
-        public void Should_Return_True_When_PhoneNumber_Is_Equal_To_Eleven_Characters(CreateUserViewModel userView)
-        {
-            userView.PhoneNumber = "00000000000";
-            var result = _validator.Validate(userView);
-            result.IsValid.ShouldBeTrue();
-        }
     }
 }

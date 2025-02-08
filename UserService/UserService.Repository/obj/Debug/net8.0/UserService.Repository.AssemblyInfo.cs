@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UserService.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56f0affd5558235104455db3bb4b45697ae6b856")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a30bef4c1cacdd026e277c6e2d8e76ec2374650")]
 [assembly: System.Reflection.AssemblyProductAttribute("UserService.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UserService.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
